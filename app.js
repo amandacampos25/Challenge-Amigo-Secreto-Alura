@@ -5,7 +5,7 @@ let amigos = [];
 
 function adicionarAmigo () {
     let nomeAmigo = document.querySelector('input').value; {
-        console.log('O botão foi clicado');
+        //console.log('O botão foi clicado');
     };
 
     if (nomeAmigo === '') {
@@ -17,4 +17,19 @@ function adicionarAmigo () {
             alert('Este amigo já está na lista!');
             return;
         };
+
+    atualizarLista();
+    document.querySelector('input').value = '';
 };
+
+function atualizarLista() {
+    let lista = document.getElementById('listaAmigos');
+    lista.innerHTML = '';
+
+    amigos.forEach(amigo => {
+        let item = document.createElement('li');
+        item.textContent = amigo;
+        lista.appendChild(item);
+        }
+    );
+}
